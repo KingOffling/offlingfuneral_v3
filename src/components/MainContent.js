@@ -126,7 +126,7 @@ const MainContent = () => {
       )}
     </Center>
     <Box position="absolute" left={{ base: '50%', md: '-180px' }} transform={{ base: 'translateX(-50%)', md: 'none' }} top={{ base: isSmallScreen ? '0' : '50%', md: '50%' }}>
-      <VStack alignItems="center" spacing={4} pr={{ base: 0, lg: 8 }}>
+      <VStack alignItems="center" spacing={4} pr={{ base: 0, lg: 8 }} paddingBottom={{ base: 8, md: 16 }}>
         {isSmallScreen && <Divider borderColor="gray.200" />}
         {videoList.map((video, index) => (
           <Text
