@@ -1,2 +1,3 @@
 [build]
+  command = "nowarn"
   ignore_warnings = true
