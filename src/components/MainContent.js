@@ -6,27 +6,27 @@ import {
   Image,
   Text,
   Divider,
-  Button,
+  //Button,
   useBreakpointValue,
-  Grid,
+  //Grid,
 } from '@chakra-ui/react';
 import wagdieLogo from './media/wagdie.png';
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+//import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 
-const GET_CHARACTERS = gql`
+/*const GET_CHARACTERS = gql`
 {
   characters(where: {location: "4"}, orderBy: timestamp, orderDirection: asc) {
     id
   }
 }
-`;
+`;*/
 
 const MainContent = () => {
   const [selectedVideo, setSelectedVideo] = useState("https://storage.googleapis.com/wagdie-wiki/videos/death_001.mp4");
   const videoRef = useRef();
-  const [showAttendance, setShowAttendance] = useState(false);
-  const [data, setData] = useState([]);
+  //const [showAttendance, setShowAttendance] = useState(false);
+  //const [data, setData] = useState([]);
 
 
   const videoList = [
@@ -43,11 +43,11 @@ const MainContent = () => {
     }
   }, [selectedVideo]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetch("https://fateofwagdie.com/api/characters/metadata/${id}")
       .then((response) => response.json())
       .then((data) => setData(data));
-  }, []);
+  }, []);*/
 
   const handleClick = (src) => {
     if (isSmallScreen) {
@@ -57,9 +57,9 @@ const MainContent = () => {
     }
   };
 
-  const [characters, setCharacters] = useState([]);
+  //const [characters, setCharacters] = useState([]);
 
-  // Fetch characters data from the GraphQL API
+  /* Fetch characters data from the GraphQL API
   const fetchCharacters = async () => {
     const client = new ApolloClient({
       uri: 'https://api.thegraph.com/subgraphs/name/wagdie/wagdieworld-mainnet',
@@ -86,10 +86,9 @@ const MainContent = () => {
     return (
       <div>
         <h2>Attendance</h2>
-        {/* Your Attendance component content goes here */}
       </div>
     );
-  };
+  };*/
 
   return (
     <Center flexDir="column" my={0} w="90%" maxW="1280px" mx="auto">
@@ -145,46 +144,9 @@ const MainContent = () => {
   </Box>
 </Box>
 
+<Box mt={8} mb={10}>
 
-
-
-
-
-<Box mt={8} mb={16}>
-
-      </Box>
-
-      {showAttendance && (
-        <Grid
-          templateColumns="repeat(3, 1fr)"
-          gap={6}
-          style={{ marginBottom: "20px" }}
-        >
-          {characters.map((character) => (
-            <Box
-              key={character.id}
-              borderWidth="1px"
-              borderRadius="lg"
-              overflow="hidden"
-              p={4}
-            >
-              <Text fontSize="xl" fontWeight="bold">
-                {character.name}
-              </Text>
-              <Text>ID: {character.id}</Text>
-              <img
-                src={`https://storage.googleapis.com/seared-wagdie-images/${character.id}.png`}
-                
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = `https://storage.googleapis.com/wagdie-images/${character.id}.png`;
-                }}
-                alt={`Image for ${character.name}`}
-              />
             </Box>
-          ))}
-        </Grid>
-      )}
     </Center>
   );
 };
