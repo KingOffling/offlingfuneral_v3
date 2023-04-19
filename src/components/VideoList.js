@@ -14,6 +14,10 @@ const VideoList = ({ selectedVideo, setSelectedVideo }) => { // Add the selected
       title: 'Funeral Plans',
       src: 'https://storage.googleapis.com/wagdie-wiki/videos/death_002.mp4',
     },
+    {
+      title: 'Grim Warning',
+      src: 'https://storage.googleapis.com/wagdie-wiki/videos/death_003.mp4',
+    },
   ];
 
   const handleClick = (src) => {
