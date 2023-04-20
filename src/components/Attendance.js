@@ -6,7 +6,7 @@ import {
     GridItem,
     Link,
     Image,
-    Button
+    Button,
 } from '@chakra-ui/react';
 
 const GET_CHARACTERS = gql`
@@ -83,6 +83,12 @@ const Attendance = () => {
             <Button onClick={toggleGridVisibility} mb={4} bg="#fb5151" color="white">
                 {isGridVisible ? 'Hide Attendees' : 'Show Attendees'}
             </Button>
+
+            <Link href="https://www.wagdie.world/" mb={-1} fontSize={24} className="stalwart">
+                {isGridVisible ? 'Gather At' : "" }<br/></Link>
+                <Link href="https://www.wagdie.world/" mb={4} fontSize={40} className="stalwart">
+                {isGridVisible ? 'STALWART FORTRESS' : "" }</Link>
+                
 
             {isGridVisible && (
                 <Grid templateColumns="repeat(3, 1fr)" gap={4}>

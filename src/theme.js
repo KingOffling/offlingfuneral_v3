@@ -21,6 +21,13 @@ const theme = extendTheme({
       '.data': {
         color: 'data',
       },
+      '.stalwart': {
+        color: 'keyword',
+        textDecoration: 'none',
+        _hover: {
+          textDecoration: 'none',
+        },
+      },
     },
   },
 });

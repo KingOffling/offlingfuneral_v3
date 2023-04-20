@@ -1,10 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Button, Flex, Image, Link, Text } from '@chakra-ui/react';
-import { useWeb3React } from '@web3-react/core';
-import { InjectedConnector } from '@web3-react/injected-connector';
-import twitterLogo from './media/twitter.png';
-import discordLogo from './media/discord.png';
-import etherscanLogo from './media/etherscan.png';
+import React, { useState, useEffect } from "react";
+import {
+  Box,
+  Button,
+  Flex,
+  Image,
+  Link,
+  Text,
+} from "@chakra-ui/react";
+import { useWeb3React } from "@web3-react/core";
+import { InjectedConnector } from "@web3-react/injected-connector";
+import twitterLogo from "./media/twitter.png";
+import discordLogo from "./media/discord.png";
+import etherscanLogo from "./media/etherscan.png";
 
 const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42] });
 
@@ -19,15 +26,25 @@ const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    connectWallet();
+  }, []);
+
   const countdownTimer = () => {
     const targetDate = 1682036400;
     const now = Math.floor(Date.now() / 1000);
     const timeLeft = targetDate - now;
+
+    if (timeLeft <= 0) {
+      return null;
+    }
+
     const hours = Math.floor(timeLeft / 3600);
     const minutes = Math.floor((timeLeft % 3600) / 60);
     const seconds = timeLeft % 60;
 
-    return `${hours}h ${minutes}m ${seconds}s`;}
+    return `${hours}h ${minutes}m ${seconds}s`;
+  }
 
   const [timer, setTimer] = useState(countdownTimer());
 
@@ -78,7 +95,9 @@ const Navbar = () => {
           {walletButton()}
         </Box>
         <Box>
-          <Text fontSize={{ base: '3.5vw', md: '2vw', lg: '1.5vw' }}>{timer}</Text>
+          {timer && (
+            <Text fontSize={{ base: '3.5vw', md: '2vw', lg: '1.5vw' }}>{timer}</Text>
+          )}
         </Box>
         <Flex justifyContent="flex-end">
           <Link href="https://twitter.com/KingOfFling/status/1646537577971761152" isExternal mr={2}>
