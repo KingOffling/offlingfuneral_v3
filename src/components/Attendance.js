@@ -11,7 +11,7 @@ import {
 
 const GET_CHARACTERS = gql`
 query GetCharacters {
-    characters(where: {location: "4"}, orderBy: timestamp, orderDirection: desc) {
+    characters(where: {location: "4"}, orderBy: infected, orderDirection: desc) {
       id
       owner {
         id
