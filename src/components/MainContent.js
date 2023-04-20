@@ -85,7 +85,7 @@ const MainContent = ({ selectedVideo, setSelectedVideo, isSmallScreen }) => {
   const starttime = 1682035200;
   
   /// TRUE TIME IS 20:20 EST -- 1682036400 
-  const endtime = 1682033760;
+ // const endtime = 1682033760;
 
   const checkTokenOwnership = async () => {
     const web3 = new Web3(Web3.givenProvider);

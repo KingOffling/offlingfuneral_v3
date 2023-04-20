@@ -18,17 +18,17 @@ const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42] });
 const Navbar = () => {
   const { activate, active, account } = useWeb3React();
 
-  const connectWallet = async () => {
+  const connectWallet = useCallback(async () => {
     try {
       await activate(injected);
     } catch (error) {
       console.log(error);
     }
-  };
+  }, [activate]);
 
   useEffect(() => {
     connectWallet();
-  }, []);
+  }, [connectWallet]);
 
   const countdownTimer = () => {
     const targetDate = 1682036400;
