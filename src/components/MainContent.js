@@ -3,13 +3,14 @@ import { Box, Center, Image, Text, Flex } from '@chakra-ui/react';
 import VideoPlayer from './VideoPlayer';
 import VideoList from './VideoList';
 import wagdieLogo from './media/wagdie.png';
+import Attendance from './Attendance';
 
 
 const MainContent = ({ selectedVideo, setSelectedVideo, isSmallScreen }) => {
 
 
   return (
-    <Center flexDir="column" my={0} w="90%" maxW="1280px" mx="auto">
+    <Center flexDir="column" my={0} w="90%" maxW="1280px"  mx="auto">
       <Box width="80%">
         <Image src={wagdieLogo} alt="Wagdie" maxW="60%" mx="auto" />
       </Box>
@@ -28,6 +29,7 @@ const MainContent = ({ selectedVideo, setSelectedVideo, isSmallScreen }) => {
         </Center>
       </Flex>
 
+      <Attendance/>
 
     </Center>
   );

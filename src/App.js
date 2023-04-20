@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Box } from '@chakra-ui/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import useMediaQuery from './hooks/useMediaQuery';
 import Navbar from './components/Navbar';
@@ -27,6 +27,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Web3ReactProvider getLibrary={getLibrary}>
+        <Box minW="880px">
         <Router>
           <Navbar />
           <MainContent
@@ -38,6 +39,7 @@ function App() {
           />
           <Footer />
         </Router>
+        </Box>
       </Web3ReactProvider>
     </ChakraProvider>
   );

@@ -22,7 +22,7 @@ const Stake = () => {
   const fetchOwnedWagdies = async () => {
     if (!library || !account) {
       setOwnedWagdies(wagdies);
-      console.log('Owned Wagdies:', wagdies);
+      console.log('Owned Wagdies:', ownedWagdies);
       return;
     }
 
