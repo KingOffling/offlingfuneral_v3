@@ -49,6 +49,8 @@ import merlin from './story/merlin.png'
 import dilplag from './story/dilplag.png'
 import plag from './story/plag.png'
 
+import bell from './story/bell.png'
+
 import song01 from './story/song01.png'
 import song02 from './story/song02.png'
 import song03 from './story/song03.png'
@@ -80,8 +82,10 @@ const MainContent = ({ selectedVideo, setSelectedVideo, isSmallScreen }) => {
 
 
   /// TRUE TIME IS 20:00 EST -- 1682035200 
-  const starttime = 1682010660;
-  const endtime = 1682036400;
+  const starttime = 1682035200;
+  
+  /// TRUE TIME IS 20:20 EST -- 1682036400 
+  const endtime = 1682033760;
 
   const checkTokenOwnership = async () => {
     const web3 = new Web3(Web3.givenProvider);
@@ -132,31 +136,32 @@ const MainContent = ({ selectedVideo, setSelectedVideo, isSmallScreen }) => {
         { time: starttime + ( 9 * 60) + 9, image: crowdrun, burnTime: false },
         { time: starttime + ( 9 * 60) + 27, image: dilbert01, burnTime: false },
         { time: starttime + ( 9 * 60) + 43, image: murmur, burnTime: false },
-        { time: starttime + ( 9 * 60) + 55, image: dilbmer, burnTime: false },
-        { time: starttime + ( 10 * 60) + 1, image: merlin, burnTime: false },
+        { time: starttime + ( 9 * 60) + 53, image: dilbmer, burnTime: false },
+        { time: starttime + ( 10 * 60) + 0, image: merlin, burnTime: false },
         { time: starttime + ( 11 * 60) + 27, image: dilbert01, burnTime: false },
         { time: starttime + ( 11 * 60) + 36, image: murmur, burnTime: false },
         { time: starttime + ( 11 * 60) + 44, image: dilbert01, burnTime: false },
         { time: starttime + ( 12 * 60) + 13, image: dilbert04, burnTime: false },
         { time: starttime + ( 12 * 60) + 32, image: dilplag, burnTime: false },
         { time: starttime + ( 12 * 60) + 38, image: plag, burnTime: false },
-        { time: starttime + ( 13 * 60) + 25, image: dilplag, burnTime: false },
+        { time: starttime + ( 13 * 60) + 22, image: dilplag, burnTime: false },
         { time: starttime + ( 13 * 60) + 45, image: plag, burnTime: false },
         { time: starttime + ( 14 * 60) + 8, image: dilbert01, burnTime: false },
         { time: starttime + ( 14 * 60) + 28, image: bard01, burnTime: false },
         { time: starttime + ( 14 * 60) + 39, image: song01, burnTime: false },
         { time: starttime + ( 15 * 60) + 2, image: song02, burnTime: false },
         { time: starttime + ( 15 * 60) + 35, image: song03, burnTime: false },
-        { time: starttime + ( 16 * 10) + 35, image: song04, burnTime: false },
-        { time: starttime + ( 16 * 10) + 55, image: song05, burnTime: false },
-        { time: starttime + ( 17 * 10) + 39, image: dilbert01, burnTime: false },
-        { time: starttime + ( 17 * 10) + 49, image: dilbert04, burnTime: false },
-        { time: starttime + ( 18 * 10) + 28, image: fun01, burnTime: false },
-        { time: starttime + ( 18 * 10) + 48, image: fun02, burnTime: false },
-        { time: starttime + ( 19 * 10) + 28, image: fun03, burnTime: false },
-        { time: starttime + ( 19 * 10) + 48, image: fun04, burnTime: false },
+        { time: starttime + ( 16 * 60) + 35, image: song04, burnTime: false },
+        { time: starttime + ( 16 * 60) + 55, image: song05, burnTime: false },
+        { time: starttime + ( 17 * 60) + 39, image: dilbert01, burnTime: false },
+        { time: starttime + ( 17 * 60) + 49, image: dilbert04, burnTime: false },
+        { time: starttime + ( 18 * 60) + 28, image: fun01, burnTime: false },
+        { time: starttime + ( 18 * 60) + 48, image: fun02, burnTime: false },
+        { time: starttime + ( 19 * 60) + 8, image: fun03, burnTime: false },
+        { time: starttime + ( 19 * 60) + 26, image: fun04, burnTime: false },
+        { time: starttime + ( 19 * 60) + 48, image: bell, burnTime: false },
 
-        { time: endtime, image: end, burnTime: true },
+        { time: starttime + ( 20 * 60), image: end, burnTime: true },
       ];
     
       let nextTimestamp = timestamps.find(t => now < t.time);
@@ -217,7 +222,7 @@ const MainContent = ({ selectedVideo, setSelectedVideo, isSmallScreen }) => {
         {!ownsToken && <Text fontSize={{ base: '3.5vw', md: '3vw', lg: '2vw' }} fontWeight="bold" textAlign="center" maxW="60%" mx="auto">
           The Spread Propogates In Death
         </Text>}
-        {!ownsToken && <Image src={spread} alt="The Funeral of King Offling" mx="auto" mb="4" mt="1" />}
+        {!ownsToken && showImage && <Image src={spread} alt="The Funeral of King Offling" mx="auto" mb="4" mt="1" />}
         {ownsToken && currentImage && <Image src={currentImage} alt="The Funeral of King Offling" mx="auto" mb="4" />}
         {!ownsToken && <Text fontSize={{ base: '3.5vw', md: '3vw', lg: '2vw' }} fontWeight="bold" textAlign="center" maxW="60%" mx="auto">
           Over 100 Newly Infected

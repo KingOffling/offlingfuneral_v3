@@ -56,7 +56,7 @@ const Navbar = () => {
     return () => {
       clearInterval(timerId);
     };
-  }, []);
+  }, [connectWallet]);
 
   const walletButton = () => {
     if (!active) {
