@@ -231,8 +231,7 @@ const MainContent = ({ selectedVideo, setSelectedVideo, isSmallScreen }) => {
         Chronicle The Spread
       </Button></Center>}
       </Box>
-
-      {ownsToken && !currentImage &&
+<br/><br/>
         <Flex justifyContent="center" width="100%" mt={2} position="relative">
           <Box position="absolute" left={0} top="50%">
             <VideoList setSelectedVideo={setSelectedVideo} selectedVideo={selectedVideo} isSmallScreen={isSmallScreen} />
@@ -240,9 +239,9 @@ const MainContent = ({ selectedVideo, setSelectedVideo, isSmallScreen }) => {
           <Center>
             <VideoPlayer selectedVideo={selectedVideo} isSmallScreen={isSmallScreen} />
           </Center>
-        </Flex>}
-
-      {ownsToken && !burnTime && <Attendance />}
+        </Flex>
+          
+          <Attendance />
       {ownsToken && burnTime && <Burn />}
 
     </Center>
